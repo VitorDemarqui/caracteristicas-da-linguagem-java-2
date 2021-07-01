@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    //adicionando plugins do pmd chestyle
+    id 'checkstyle'
+    id 'pmd'
+}
+
+group 'one.digitalinnovation'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+//configurações do checkstyle
+
+checkstyle {
+    toolVersion = '8.44'
+    showViolations= true
+    //quais sao os checks que queremos verificar
+    configFile = file("config/checkstyle.xml")
+}
+
